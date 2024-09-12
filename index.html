@@ -25,8 +25,20 @@
         }
 
         // Display the generated key
-        var key = generateUniqueKey();
+        const key = generateUniqueKey();
         document.getElementById("unique-key").textContent = key;
+
+        // Send the key to your server
+        fetch('https://yourserver.com/store-key', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ key: key })
+        })
+        .then(response => response.json())
+        .then(data => console.log('Key stored successfully:', data))
+        .catch(error => console.error('Error storing the key:', error));
     </script>
 </body>
 </html>
