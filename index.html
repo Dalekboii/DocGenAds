@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Your Unique Key</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Congratulations! You have completed the actions.</h2>
+    <p>Your unique key is: <strong id="unique-key"></strong></p>
+    <p>Copy this key and paste it into the Discord bot to receive additional document generation credits.</p>
+
+    <script>
+        // Function to generate a unique key
+        function generateUniqueKey() {
+            return 'xxxx-xxxx-4xxx-yxxx-xxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        // Display the generated key
+        var key = generateUniqueKey();
+        document.getElementById("unique-key").textContent = key;
+    </script>
+</body>
+</html>
